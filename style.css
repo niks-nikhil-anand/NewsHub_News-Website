@@ -10,6 +10,9 @@
 li {
     list-style: none;
 }
+li:hover{
+    color: rgb(228, 45, 45);
+}
 
 
 .padding-auto {
@@ -21,7 +24,7 @@ li {
 .container {
     /* background-color: red; */
     width: 100%;
-    height: 199vh;
+    /* height: 199vh; */
     /* margin: 0 20px; */
     color: black;
 }
@@ -97,19 +100,21 @@ nav {
 /* -------------- Main Css Starts Here */
 
 main {
+    
     padding-block: 20px;
     margin-top: 80px;
 }
 
 .cards-container {
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-start;
     flex-wrap: wrap;
     align-items: start;
 }
 
 .card {
     width: 400px;
+    
     min-height: 400px;
     box-shadow: 0 0 4px #82c7ff;
     cursor: pointer;
@@ -117,6 +122,7 @@ main {
     overflow: hidden;
     border-radius: 2px;
     transition: all 0.3sec ease;
+    margin-inline: 30px;
     margin-bottom: 20px;
 }
 
@@ -142,18 +148,16 @@ main {
 
 /* Footer CSS starts from here */
 footer {
-    position: absolute;
-    /* display: flex; */
-    flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
+   /* background-color: red; */
     width: 100%;
     background-color: #B4BDFF;
     box-shadow: 0 0 6px #83A2FF;
+    
 
 }
 
 .footer-container {
+
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -168,13 +172,15 @@ footer {
     justify-content: center;
     align-items: center;
 }
-.footer-container h3{
+
+.footer-container h3 {
     font-weight: 800;
     padding: 20px 0;
     font-family: 'Poppins', sans-serif;
 
 }
-.footer-container ul li{
+
+.footer-container ul li {
     padding: 6px 0;
     font-weight: 700;
     cursor: pointer;
