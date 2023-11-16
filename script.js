@@ -19,7 +19,7 @@ function bindData(articles) {
     cardsContainer.innerHTML = "";
 
     // Use slice to get the first 10 elements
-    articles.slice(0, 17).forEach((article) => {
+    articles.forEach((article) => {
         if (!article.urlToImage) return;
         const cardsClone = templateCards.content.cloneNode(true);
         fillDataInCard(cardsClone, article);
