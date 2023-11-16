@@ -4,9 +4,12 @@ const URL = "https://newsapi.org/v2/everything?q=";
 window.addEventListener('load', () => fetchNews("India"));
 
 async function fetchNews(query) {
-    const res = await fetch(`${URL}${query}&apikey=${API_KEY}`);
+    const res = await fetch(`${URL}${query}&apiKey=${API_KEY}`);
     const data = await res.json();
     bindData(data.articles);
+}
+function reload(){
+    window.location.reload();
 }
 
 function bindData(articles) {
@@ -15,13 +18,15 @@ function bindData(articles) {
 
     cardsContainer.innerHTML = "";
 
-    articles.forEach((article) => {
+    // Use slice to get the first 10 elements
+    articles.slice(0, 10).forEach((article) => {
         if (!article.urlToImage) return;
         const cardsClone = templateCards.content.cloneNode(true);
         fillDataInCard(cardsClone, article);
         cardsContainer.appendChild(cardsClone);
-    })
+    });
 }
+
 
 function fillDataInCard(cardsClone, article) {
     const newsImg = cardsClone.querySelector("#news-img");
@@ -41,6 +46,44 @@ function fillDataInCard(cardsClone, article) {
     cardsClone.firstElementChild.addEventListener("click" , ()=>{
         window.open(article.url , "_blank");
     })
-
 }
+
+let curSelectedItem = null;
+function onNavItemClick(id){
+    fetchNews(id);  
+    const navItem = document.getElementById(id);
+    curSelectedItem?.classList.remove('active');
+    curSelectedItem = navItem;
+    curSelectedItem.classList.add('active')
+}
+
+
+
+function onFooterItem1Click(id){
+    fetchNews(id);  
+    const navItem = document.getElementById(id);
+    curSelectedItem?.classList.remove('active');
+    curSelectedItem = navItem;
+    curSelectedItem.classList.add('active')
+}
+
+
+
+
+
+
+
+
+const searchButton = document.getElementById('search-btn');
+const searchText = document.getElementById('search-text');
+
+searchButton.addEventListener("click" , () => {
+    const value = searchText.value;
+    if(!value) return ;
+    fetchNews(value);
+    curSelectedItem?.classList.remove('active');
+    curSelectedItem = null;
+
+})
+
 

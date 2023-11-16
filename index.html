@@ -17,21 +17,22 @@
             <div class="main-nav padding-auto">
                 <div class="main-nav_logo">
                     <a href="#">
-                        <img src="./logo.png" />
+                        <img src="./logo.png" onclick="reload()"/>
                     </a>
                 </div>
                 <div class="main-nav_links">
                     <ul>
-                        <li>Business</li>
-                        <li>Tech</li>
-                        <li>Politics</li>
-                        <li>India</li>
-                        <li>Sports</li>
+                        <li class="nav-item" id="business" onclick="onNavItemClick('business')">Business</li>
+                        <li class="nav-item" id="tech" onclick="onNavItemClick('tech')">Tech</li>
+                        <li class="nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                        <li class="nav-item" id="health" onclick="onNavItemClick('health')">Health</li>
+                        <li class="nav-item" id="sports" onclick="onNavItemClick('sports')">Sports</li>
+                        <li class="nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
                     </ul>
                 </div>
                 <div class="main-nav_search">
-                    <input type="text" placeholder="e.g Science" class="search">
-                    <button class="search-btn">Search</button>
+                    <input type="text" id="search-text" placeholder="e.g Science" class="search">
+                    <button class="search-btn" id="search-btn">Search</button>
                 </div>
             </div>
         </nav>
@@ -45,7 +46,8 @@
                 <div class="card-content">
                     <h3 id="news-title">This is the title</h3>
                     <h6 class="img-src" id="img-source">End Gadgets 25/08/2001</h6>
-                    <p class="card-desc" id="news-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem, at
+                    <p class="card-desc" id="news-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Inventore dolorem, at
                         voluptas maiores aliquam impedit repellendus ut, necessitatibus corporis ratione quisquam
                         incidunt. Sint, provident deserunt?</p>
 
@@ -57,19 +59,20 @@
                 <div class="keywords">
                     <h3>Trending Keywords</h3>
                     <ul>
-                        <li>Israeli military</li>
-                        <li>Elon Musk</li>
-                        <li>Ukraine</li>
-                        <li>Hamas</li>
+                        <li class="nav-item" id="blockchain" onclick="onFooterItemClick('blockchain')">Israeli
+                            military</li>
+                        <li class="nav-item" id="elonmusk" onclick="onFooterItemClick('elonmusk')">Elon Musk</li>
+                        <li class="nav-item" id="ukraine" onclick="onFooterItemClick('ukraine')">Ukraine</li>
+                        <li class="nav-item" id="hamas" onclick="onFooterItemClick('hamas')">Hamas</li>
                     </ul>
                 </div>
-                <div class="publishers">
-                    <h3>Publishers</h3>
+                <div class="Top Headlines">
+                    <h3>Categories</h3>
                     <ul>
-                        <li>BBC News</li>
-                        <li>Financial Times</li>
-                        <li>CNN</li>
-                        <li>The Verge</li>
+                        <li id="entertainment" onclick="onFooterItem2Click('entertainment')">Entertainment</li>
+                        <li id="engadget" onclick="onFooterItem2Click('engadget')">Futuristics</li>
+                        <li id="bbcnews" onclick="onFooterItem2Click('bbcnews')">BBC News</li>
+                        <li id="cnn" onclick="onFooterItem2Click('cnn')">CNN</li>
                     </ul>
                 </div>
                 <div>
