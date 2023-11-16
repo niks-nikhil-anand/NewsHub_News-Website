@@ -19,7 +19,7 @@ function bindData(articles) {
     cardsContainer.innerHTML = "";
 
     // Use slice to get the first 10 elements
-    articles.slice(0, 10).forEach((article) => {
+    articles.slice(0, 17).forEach((article) => {
         if (!article.urlToImage) return;
         const cardsClone = templateCards.content.cloneNode(true);
         fillDataInCard(cardsClone, article);
@@ -56,18 +56,30 @@ function onNavItemClick(id){
     curSelectedItem = navItem;
     curSelectedItem.classList.add('active')
 }
+const srcUrl = "https://newsapi.org/v2/top-headlines?sources=";
+
+async function fetchNewscategories(source) {
+    const res = await fetch(`${srcUrl}${source}&apiKey=${API_KEY}`);
+    const data = await res.json();
+    bindData(data.articles);
+}
+
+function footerclick(id) {
+    fetchNewscategories(id);
+    const navItem = document.getElementById(id);
+    curSelectedItem?.classList.remove('active');
+    curSelectedItem = navItem;
+    curSelectedItem.classList.add('active');
+}
 
 
-
-function onFooterItem1Click(id){
+function onFooterItemClick(id){
     fetchNews(id);  
     const navItem = document.getElementById(id);
     curSelectedItem?.classList.remove('active');
     curSelectedItem = navItem;
     curSelectedItem.classList.add('active')
 }
-
-
 
 
 
